@@ -1,0 +1,16 @@
+.link {}
+
+
+.textSpan,
+.ripleSpan {
+    transition: transform .5s cubic-bezier(.4,0,0,1);
+}
+
+
+.link:hover .textSpan {
+    transform: translateY(-101%);
+}
+
+.link:hover .ripleSpan {
+    transform: translateY(0px);
+}
