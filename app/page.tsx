@@ -1,4 +1,4 @@
-import { FancyLink } from "@/components";
+import { FancyLink, Marquee } from "@/components";
 
 export default function Home() {
   return (
@@ -7,6 +7,8 @@ export default function Home() {
       <FancyLink appearance="ghost">Услуги</FancyLink>
       <FancyLink appearance="pink">Портфолио</FancyLink>
 
+      <br />
+      <Marquee>Instagram</Marquee>
     </main>
   );
 }
