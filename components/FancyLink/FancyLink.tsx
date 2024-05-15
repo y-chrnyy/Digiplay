@@ -31,7 +31,7 @@ const FancyLink = forwardRef<HTMLAnchorElement, IFancyLinkProps>(({ appearance =
             ref={ref}
             {...props}
         >
-            <span className="relative overflow-hidden z-10">
+            <span className="relative overflow-hidden z-10 font-light">
                 <span className={cn('inline-block ', spanStyles[appearance], classes.textSpan)}>{children}</span>
                 <span className={cn(`inline-block absolute top-0 left-0 translate-y-[101%] ${appearance === "black" ? "text-black" : 'text-white'}`, classes.ripleSpan)}>{children}</span>
             </span>
