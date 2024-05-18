@@ -10,9 +10,20 @@ const config: Config = {
     extend: {
       colors: {
         'pink': '#EF62D0'
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0px)' },
+          '100%': { transform: 'translateX(calc(0px - 100% - 100px))' }
+        }
+      },
+      animation: {
+        marquee: 'marquee 10s linear infinite'
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-animate"),
+  ],
 };
 export default config;

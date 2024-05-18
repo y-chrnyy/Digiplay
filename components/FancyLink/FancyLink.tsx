@@ -12,7 +12,7 @@ const FancyLink = forwardRef<HTMLAnchorElement, IFancyLinkProps>(({ appearance =
                   before:[transition-timing-function:cubic-bezier(.4,0,0,1)]`
 
     const styles = {
-        'black': 'bg-black text-white before:bg-white ',
+        'black': 'bg-black text-white before:bg-white hover:border-black hover:border',
         'ghost': 'bg-transparent text-black border border-black before:bg-black',
         'pink': 'bg-transparent border border-pink text-pink before:bg-pink'
     }
