@@ -1,20 +1,19 @@
 import { IMarqueeProps } from "./Marquee.pops";
 import cn from 'classnames';
 
-const Marquee = ({ children, className, ...props }: IMarqueeProps) => {
+const Marquee = ({ children, className, runOnHover = true, ...props }: IMarqueeProps) => {
 
 
     return (
 
 
-        <div className={cn("group/a flex flex-nowrap gap-[100px] overflow-hidden text-[60px] font-light text-pink relative", className)} >
-            <div className="min-w-full w-max flex gap-[100px] animate-marquee paused group-hover/a:running shrink-0">
+        <div className={cn("group/a flex flex-nowrap gap-[100px] overflow-hidden text-[60px] font-light text-pink relative", className)} {...props}>
+            <div className={`min-w-full w-max flex gap-[100px] animate-marquee  ${runOnHover && 'paused group-hover/a:running'} shrink-0`}>
                 {children}
 
             </div>
-            <div className="min-w-full w-max flex gap-[100px] animate-marquee paused group-hover/a:running shrink-0">
+            <div className={`min-w-full w-max flex gap-[100px] animate-marquee ${runOnHover && 'paused group-hover/a:running'} shrink-0`} aria-hidden='true'>
                 {children}
-
             </div>
         </div >
     )
