@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Yanone_Kaffeesatz } from "next/font/google";
 import "./globals.css";
+import { Header } from "../components";
 
 const yanone = Yanone_Kaffeesatz({ subsets: ['cyrillic', 'latin'] });
 
@@ -16,7 +17,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={yanone.className}>{children}</body>
+      <body className={yanone.className}>
+        <Header></Header>
+        {children}
+      </body>
     </html>
   );
+}
+
+
+function showBurgerMenuContent() {
+
 }
