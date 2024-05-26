@@ -1,18 +1,17 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import { BurgerMenu, BurgerMenuContent } from '..'
+import { BurgerMenu, BurgerMenuContent, IBurgerMenuContentRef } from '..'
 import Digiplay from '../../public/DIGIPLAY.svg'
 
 const Header = () => {
     const burgerRef = useRef<HTMLButtonElement>(null),
-        burgerContentRef = useRef<HTMLDivElement>(null);
+        burgerContentRef = useRef<IBurgerMenuContentRef>(null);
 
     useEffect(() => {
         if (!burgerRef.current || !burgerContentRef.current) return;
 
         burgerRef.current.onclick = () => {
-            console.log(burgerContentRef.current)
-            burgerContentRef.current!.classList.toggle('scale-x-0')
+            burgerContentRef.current!.toggle()
         }
 
         return () => { burgerRef.current!.onclick = null }
