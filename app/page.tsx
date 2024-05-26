@@ -1,12 +1,15 @@
-import { FancyLink, Marquee, MarqueeLink } from "@/components";
+import { FancyAnchor, Marquee, MarqueeLink, SlideUpAnchor } from "@/components";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <FancyLink >Об Агенстве</FancyLink>
-      <FancyLink appearance="ghost">Услуги</FancyLink>
-      <FancyLink appearance="pink">Портфолио</FancyLink>
+      <FancyAnchor >Об Агенстве</FancyAnchor>
+      <FancyAnchor appearance="ghost">Услуги</FancyAnchor>
+      <FancyAnchor appearance="pink">Портфолио</FancyAnchor>
 
+      <SlideUpAnchor>
+        text
+      </SlideUpAnchor>
       <br />
       <Marquee>
         <span className="flex items-center gap-[100px]">

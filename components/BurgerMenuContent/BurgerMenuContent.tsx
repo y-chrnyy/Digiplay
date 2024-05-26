@@ -1,98 +1,73 @@
 'use client'
-import { forwardRef, useEffect, useImperativeHandle, useRef } from "react"
-import { IBurgerMenuContentProps } from "./BurgetMenuContent.props"
-import cn from 'classnames'
+import { forwardRef, useImperativeHandle, useRef } from "react";
+import { BurgerMenuContentTemplate, IBurgerMenuContentTemplate, SlideUpAnchor } from "../";
 
-export interface IBurgerMenuContentRef {
-    close: () => void;
-    open: () => void;
-    toggle: () => void;
-
-}
-
-const BurgerMenuContent = forwardRef(({ className, closeOnBackdropClick = true }: IBurgerMenuContentProps, outerRef) => {
-    const innerRef = useRef<HTMLDivElement>(null),
-        backdropRef = useRef<HTMLDivElement>(null)
+const BurgerMenuContent = forwardRef((props, outerRef) => {
+    const templateRef = useRef<IBurgerMenuContentTemplate>(null),
+        contentRef = useRef<HTMLDivElement>(null)
 
     useImperativeHandle(outerRef, () => {
-        const { classList: innerClassList } = innerRef.current!;
-        const { classList: backdropClassList } = backdropRef.current!;
+        const { classList: contentClassList } = contentRef.current!;
 
         return {
             close() {
-                closeContent(backdropClassList, innerClassList)
+                if (!templateRef.current) return;
+                templateRef.current.close()
+
+                if (!contentRef.current) return;
+                contentClassList.remove('delay-100');
+                contentClassList.add('opacity-0')
             },
             open() {
-                openContent(backdropClassList, innerClassList)
+                if (!templateRef.current) return;
+                templateRef.current.open()
+
+                if (!contentRef.current) return;
+                contentClassList.add('delay-100');
+                contentClassList.remove('opacity-0')
             },
             toggle() {
-                toggleContent(backdropClassList, innerClassList)
+                if (!templateRef.current) return;
+                templateRef.current.toggle()
+
+                if (!contentRef.current) return;
+                contentClassList.toggle('opacity-0')
+                contentClassList.contains('opacity-0') ? contentClassList.remove('delay-100') : contentClassList.add('delay-100')
             }
-        };
-    });
-
-    useEffect(() => {
-        function closeContentOnBackdropClick(e: MouseEvent) {
-            const target = e.target as Element
-            if (innerRef.current?.contains(target)) return;
-
-            closeContent(backdropRef.current!.classList, innerRef.current!.classList)
         }
-
-        if (closeOnBackdropClick) {
-            backdropRef.current?.addEventListener('click', closeContentOnBackdropClick)
-        }
-
-        return () => {
-            backdropRef.current?.removeEventListener('click', closeContentOnBackdropClick)
-        }
-    }, [])
+    })
 
     return (
-        <>
-            <span
-                className="fixed inset-0 bg-black z-20 opacity-0 transition-opacity duration-500 ease-out pointer-events-none"
-                ref={backdropRef}
-            >
-            </span>
-            <section className={cn(`w-full max-w-[946px] h-screen fixed right-0 top-0 z-30 bg-red-400 
-                             scale-x-0 transition-all duration-500  origin-[right_center] ease-out`, className)}
-                ref={innerRef}
-            >
-            </section>
-        </>
+        <BurgerMenuContentTemplate ref={templateRef} className="bg-stone-50">
+            <div className="w-full h-screen pt-[90px] flex flex-col justify-between relative text-[40px]/[100%] transition-opacity opacity-0 delay-100" ref={contentRef}>
+                <div className="flex grow-[2] font-light px-10">
+                    <div className="w-full max-w-[316px]">
+                        <h4 className="text-pink mb-[80px]">социальные сети</h4>
+                        <ul className="font-extralight flex flex-col gap-10">
+                            <li><SlideUpAnchor text="instagram" ></SlideUpAnchor></li>
+                            <li><SlideUpAnchor text="telegram"></SlideUpAnchor></li>
+                        </ul>
+                    </div>
 
+                    <div className="w-full">
+                        <h4 className="text-pink mb-[80px]">меню</h4>
+                        <ul className="font-extralight flex flex-col gap-10 *:uppercase">
+                            <li><SlideUpAnchor text="Об агенстве" ></SlideUpAnchor></li>
+                            <li><SlideUpAnchor text="Портфолио"></SlideUpAnchor></li>
+                            <li><SlideUpAnchor text="Отзывы" ></SlideUpAnchor></li>
+                            <li><SlideUpAnchor text="Услуги"></SlideUpAnchor></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <footer className="flex flex-col pb-[80px]  px-10">
+                    <h4 className="text-pink mb-[50px] font-light">cвязаться</h4>
+                    <strong className="mb-30 font-extralight cursor-pointer" >whats up</strong>
+                    <strong className="font-extralight cursor-pointer">Digiplay@gmail.ru</strong>
+                </footer>
+            </div>
+        </BurgerMenuContentTemplate>
     )
 })
 
 export { BurgerMenuContent }
-
-
-
-
-function openContent(backdropClassList: DOMTokenList, contentClassList: DOMTokenList) {
-    contentClassList.remove('scale-x-0')
-
-    backdropClassList.remove('opacity-0');
-    backdropClassList.remove('pointer-events-auto');
-    backdropClassList.add('opacity-0');
-    backdropClassList.add('pointer-events-none');
-}
-
-function closeContent(backdropClassList: DOMTokenList, contentClassList: DOMTokenList) {
-    contentClassList.add('scale-x-0')
-
-    backdropClassList.remove('opacity-0');
-    backdropClassList.remove('pointer-events-auto');
-    backdropClassList.add('opacity-0');
-    backdropClassList.add('pointer-events-none');
-}
-
-function toggleContent(backdropClassList: DOMTokenList, contentClassList: DOMTokenList) {
-    contentClassList.toggle('scale-x-0')
-
-    backdropClassList.toggle('opacity-0');
-    backdropClassList.toggle('opacity-50');
-    backdropClassList.toggle('pointer-events-auto');
-    backdropClassList.toggle('pointer-events-none');
-}

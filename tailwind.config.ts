@@ -19,7 +19,8 @@ const config: Config = {
       },
       animation: {
         marquee: 'marquee 10s linear infinite'
-      }
+      },
+
     },
   },
   plugins: [

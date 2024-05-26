@@ -1,10 +1,10 @@
 import { forwardRef } from "react"
-import { IFancyLinkProps } from "./FancyLink.props"
-import classes from './FancyLink.module.css'
+import { IFancyAnchorProps } from "./FancyAnchor.props"
+import classes from './FancyAnchor.module.css'
 import cn from "classnames"
 
 
-const FancyLink = forwardRef<HTMLAnchorElement, IFancyLinkProps>(({ appearance = 'black', children, className, ...props }, ref) => {
+const FancyAnchor = forwardRef<HTMLAnchorElement, IFancyAnchorProps>(({ appearance = 'black', children, className, ...props }, ref) => {
     const base = `group/a cursor-pointer inline-flex justify-center items-center min-w-[306px] h-[78px] rounded-[40px] py-5 text-[40px] relative overflow-hidden
                   hover:scale-x-[1.02] transition-transform duration-500 [transition-timing-function:cubic-bezier(.34,5.56,.64,1)]
                   before:absolute before:w-full before:h-full before:translate-y-[101%] hover:before:translate-y-0
@@ -39,4 +39,4 @@ const FancyLink = forwardRef<HTMLAnchorElement, IFancyLinkProps>(({ appearance =
     )
 })
 
-export { FancyLink }
+export { FancyAnchor }
