@@ -51,7 +51,7 @@ const BurgerMenuContentTemplate = forwardRef(({ children, className, closeOnBack
     return (
         <>
             <span
-                className="fixed inset-0 bg-black z-20 opacity-0 transition-opacity duration-500 ease-out pointer-events-none"
+                className="fixed inset-0 bg-black z-20 opacity-0 transition-opacity duration-700 ease-out pointer-events-none"
                 ref={backdropRef}
             >
             </span>
