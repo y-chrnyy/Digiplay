@@ -14,15 +14,23 @@ const FancyAnchor = forwardRef<HTMLAnchorElement, IFancyAnchorProps>(({ appearan
     const styles = {
         'black': 'bg-black text-white before:bg-white hover:border-black hover:border',
         'ghost': 'bg-transparent text-black border border-black before:bg-black',
-        'pink': 'bg-transparent border border-pink text-pink before:bg-pink'
+        'pink': 'bg-transparent border border-pink  before:bg-pink',
+        'pink-reverse': 'bg-pink border border-pink before:bg-black'
     }
 
     const spanStyles = {
         'black': 'text-white',
         'ghost': 'text-black',
-        'pink': 'text-pink'
+        'pink': 'text-white',
+        'pink-reverse': 'text-black'
     };
 
+    const textSpanStyles = {
+        'black': 'text-black',
+        'ghost': 'text-white',
+        'pink': 'text-black',
+        'pink-reverse': 'text-white'
+    }
 
 
     return (
@@ -33,7 +41,7 @@ const FancyAnchor = forwardRef<HTMLAnchorElement, IFancyAnchorProps>(({ appearan
         >
             <span className="relative overflow-hidden z-10 font-light">
                 <span className={cn('inline-block ', spanStyles[appearance], classes.textSpan)}>{children}</span>
-                <span className={cn(`inline-block absolute top-0 left-0 translate-y-[101%] ${appearance === "black" ? "text-black" : 'text-white'}`, classes.ripleSpan)}>{children}</span>
+                <span className={cn(`inline-block absolute top-0 left-0 translate-y-[101%] ${textSpanStyles[appearance]}`, classes.ripleSpan)}>{children}</span>
             </span>
         </a>
     )

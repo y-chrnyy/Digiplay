@@ -10,7 +10,7 @@ export interface IBurgerMenuContentTemplate {
 
 }
 
-const BurgerMenuContentTemplate = forwardRef(({ children, className, closeOnBackdropClick = true }: IBurgerMenuContentProps, outerRef) => {
+const BurgerMenuContentTemplate = forwardRef(({ children, className, onBackdropClick }: IBurgerMenuContentProps, outerRef) => {
     const innerRef = useRef<HTMLDivElement>(null),
         backdropRef = useRef<HTMLDivElement>(null)
 
@@ -37,9 +37,10 @@ const BurgerMenuContentTemplate = forwardRef(({ children, className, closeOnBack
             if (innerRef.current?.contains(target)) return;
 
             closeContent(backdropRef.current!.classList, innerRef.current!.classList)
+            onBackdropClick && onBackdropClick()
         }
 
-        if (closeOnBackdropClick) {
+        if (onBackdropClick) {
             backdropRef.current?.addEventListener('click', closeContentOnBackdropClick)
         }
 
@@ -75,18 +76,18 @@ function openContent(backdropClassList: DOMTokenList, contentClassList: DOMToken
     contentClassList.remove('scale-x-0')
 
     backdropClassList.remove('opacity-0');
-    backdropClassList.remove('pointer-events-auto');
+    backdropClassList.remove('pointer-events-none');
     backdropClassList.add('opacity-0');
-    backdropClassList.add('pointer-events-none');
+    backdropClassList.add('pointer-events-auto');
 }
 
 function closeContent(backdropClassList: DOMTokenList, contentClassList: DOMTokenList) {
     contentClassList.add('scale-x-0')
 
     backdropClassList.remove('opacity-50');
-    backdropClassList.remove('pointer-events-none');
+    backdropClassList.remove('pointer-events-auto');
     backdropClassList.add('opacity-0');
-    backdropClassList.add('pointer-events-auto');
+    backdropClassList.add('pointer-events-none');
 }
 
 function toggleContent(backdropClassList: DOMTokenList, contentClassList: DOMTokenList) {

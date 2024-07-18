@@ -1,10 +1,23 @@
 'use client'
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { BurgerMenuContentTemplate, IBurgerMenuContentTemplate, SlideUpAnchor } from "../";
+import { IBurgerMenuContentProps } from "./BurgetMenuContent.props";
 
-const BurgerMenuContent = forwardRef((props, outerRef) => {
+
+
+const BurgerMenuContent = forwardRef(({ onBackdropClick }: IBurgerMenuContentProps, outerRef) => {
     const templateRef = useRef<IBurgerMenuContentTemplate>(null),
         contentRef = useRef<HTMLDivElement>(null)
+
+    function onBackdropClickUpdated() {
+        if (onBackdropClick) {
+            onBackdropClick && onBackdropClick();
+
+            if (!templateRef.current) return;
+            closeTemplate(templateRef.current, contentRef.current!.classList)
+        }
+
+    }
 
     useImperativeHandle(outerRef, () => {
         const { classList: contentClassList } = contentRef.current!;
@@ -12,11 +25,8 @@ const BurgerMenuContent = forwardRef((props, outerRef) => {
         return {
             close() {
                 if (!templateRef.current) return;
-                templateRef.current.close()
 
-                if (!contentRef.current) return;
-                contentClassList.remove('delay-100');
-                contentClassList.add('opacity-0')
+                closeTemplate(templateRef.current, contentClassList)
             },
             open() {
                 if (!templateRef.current) return;
@@ -38,8 +48,8 @@ const BurgerMenuContent = forwardRef((props, outerRef) => {
     })
 
     return (
-        <BurgerMenuContentTemplate ref={templateRef} className="bg-stone-50">
-            <div className="w-full h-screen pt-[90px] flex flex-col justify-between relative text-[40px]/[100%] transition-opacity opacity-0 delay-100" ref={contentRef}>
+        <BurgerMenuContentTemplate ref={templateRef} className="bg-stone-50" onBackdropClick={onBackdropClickUpdated}>
+            <div className="w-full h-screen pt-[90px] flex flex-col justify-between relative text-[40px]/[100%] transition-opacity opacity-0 delay-100 !text-black" ref={contentRef}>
                 <div className="flex grow-[2] font-light px-10">
                     <div className="w-full max-w-[316px]">
                         <h4 className="text-pink mb-[80px]">социальные сети</h4>
@@ -71,3 +81,11 @@ const BurgerMenuContent = forwardRef((props, outerRef) => {
 })
 
 export { BurgerMenuContent }
+
+
+function closeTemplate(template: IBurgerMenuContentTemplate, contentClassList: DOMTokenList) {
+    template.close()
+
+    contentClassList.remove('delay-100');
+    contentClassList.add('opacity-0')
+}

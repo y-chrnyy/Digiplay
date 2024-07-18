@@ -1,40 +1,26 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import { BurgerMenu, BurgerMenuContent, IBurgerMenuContentTemplate } from '..'
+import { BurgerMenu, BurgerMenuContent, IBurgerMenu, IBurgerMenuContentTemplate } from '..'
 import Digiplay from '../../public/DIGIPLAY.svg'
 
 const Header = () => {
-    const burgerRef = useRef<HTMLButtonElement>(null),
+    const burgerRef = useRef<IBurgerMenu>(null),
         burgerContentRef = useRef<IBurgerMenuContentTemplate>(null);
-
-    // useEffect(() => {
-
-    //     burgerRef.current!.onclick = () => {
-    //         console.log('click')
-    //         console.log('---')
-
-    //         burgerContentRef.current!.toggle()
-    //     }
-
-    //     return () => {
-    //         burgerRef.current!.onclick = null
-    //     }
-    // }, []);
 
     function toggleContent() {
         burgerContentRef.current!.toggle();
-        console.log('toggle')
-        console.log('__________')
+    }
 
+    function onBurgerBackdropClick() {
+        burgerRef.current!.close()
     }
 
     return (
-        <header className='flex justify-between items-center px-10 py-[30px]'>
-            <Digiplay className='z-[100] cursor-pointer' />
+        <header className='flex justify-between items-center px-10 py-[30px] text-white'>
 
-            <p className='font-light text-[50px] mr-[88px]'>меню</p>
+            <p className='font-light text-[50px] mr-[88px] ml-auto'>меню</p>
             <BurgerMenu ref={burgerRef} onClick={() => toggleContent()} />
-            <BurgerMenuContent ref={burgerContentRef}>
+            <BurgerMenuContent ref={burgerContentRef} onBackdropClick={onBurgerBackdropClick}>
 
             </BurgerMenuContent>
         </header >

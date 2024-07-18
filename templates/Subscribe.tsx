@@ -11,9 +11,7 @@ const Subscribe = () => {
             <SubscribeMarqueeLink text={'Linkedin'} />
 
             <div className='mt-[213px] mx-[60px] flex gap-[45px]'>
-                <FancyAnchor appearance='pink'>
-                    <strong className='font-light text-[30px]/[100%] underline px-2'>Зачем ты вставила сюда пустой блок</strong>
-                </FancyAnchor>
+
                 <FancyAnchor appearance='pink'>
                     <strong className='font-light text-[30px]/[100%] underline'>Digiplay@gmail.ru</strong>
                 </FancyAnchor>

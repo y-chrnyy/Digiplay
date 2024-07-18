@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'pink': '#EF62D0'
+        'pink': '#ff54a6'
       },
       keyframes: {
         marquee: {
@@ -21,7 +21,10 @@ const config: Config = {
       animation: {
         marquee: 'marquee 10s linear infinite'
       },
-
+      fontFamily: {
+        yanone: 'var(--font-yanone)',
+        kurut: 'var(--font-kurut)'
+      }
     },
   },
   plugins: [
