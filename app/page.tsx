@@ -1,12 +1,12 @@
-import { FancyAnchor, Marquee, MarqueeLink, SlideUpAnchor } from "@/components";
-import { Hero } from "@/templates/Hero";
-import { Subscribe } from "@/templates/Subscribe";
+import { Hero, Subscribe, About, WhyWe } from "@/templates";
 
 export default function Home() {
   return (
     <main className="">
-      <Hero></Hero>
-      <Subscribe></Subscribe>
+      <Hero />
+      <About />
+      <WhyWe />
+      <Subscribe />
     </main>
   );
 }

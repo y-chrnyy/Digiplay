@@ -11,7 +11,7 @@ export interface IBurgerMenu {
 
 const BurgerMenu = forwardRef(({ onClick, className, ...props }: IBurgerMenuProps, outerRef) => {
     const [isOpen, setIsOpen] = useState(false),
-        burgerRef = useRef(null)
+        burgerRef = useRef<HTMLButtonElement>(null)
 
     const [scope, animate] = useAnimate(),
         f = useRef<HTMLSpanElement>(null),
@@ -34,6 +34,10 @@ const BurgerMenu = forwardRef(({ onClick, className, ...props }: IBurgerMenuProp
 
 
     async function openBurger() {
+        f.current!.style.backgroundColor = '#ff54a6'
+        s.current!.style.backgroundColor = '#ff54a6'
+        burgerRef.current!.style.pointerEvents = 'none'
+
         animate('.f', { scaleX: 0, }, { duration: 0.25, ease: 'easeIn' });
         await animate('.s', { scaleX: 0 }, { duration: 0.25, ease: 'easeIn' });
 
@@ -51,20 +55,28 @@ const BurgerMenu = forwardRef(({ onClick, className, ...props }: IBurgerMenuProp
 
 
         setIsOpen(true)
+        burgerRef.current!.style.pointerEvents = ''
     }
 
     async function closeBurger() {
+        burgerRef.current!.style.pointerEvents = 'none'
         f.current!.style.rotate = ''
         s.current!.style.rotate = ''
+
         animate('.f', { top: 0, right: 0 }, { duration: 0.2 })
         animate('.s', { top: -18, right: 0 }, { duration: 0.2 })
 
         setTimeout(() => {
             animate('.f', { top: 0, right: 0 }, { duration: 0.2, ease: 'easeIn' })
             animate('.s', { top: 0, right: 0 }, { duration: 0.2, ease: 'easeIn' })
+
+            f.current!.style.backgroundColor = ''
+            s.current!.style.backgroundColor = ''
+            burgerRef.current!.style.pointerEvents = ''
+            setIsOpen(false)
         }, 300)
 
-        setIsOpen(false)
+
     }
 
     function toggleBurger() {
@@ -92,7 +104,7 @@ const BurgerMenu = forwardRef(({ onClick, className, ...props }: IBurgerMenuProp
         >
             <div className="" ref={scope}>
                 <motion.span
-                    className={`f  pointer-events-none block  relative w-[52px] h-1 ${isOpen ? 'bg-pink' : 'bg-white'} [transition:rotate_.2s;]`}
+                    className={`f  pointer-events-none block  relative w-[52px] h-1 bg-white [transition:rotate_.2s;]`}
                     initial={{
                         originX: 0,
                         originY: 0.5,
@@ -102,7 +114,7 @@ const BurgerMenu = forwardRef(({ onClick, className, ...props }: IBurgerMenuProp
                     ref={f}
                 />
                 <motion.span
-                    className={`s mt-[15px] pointer-events-none block  relative w-[52px] h-1 ${isOpen ? 'bg-pink' : 'bg-white'} [transition:rotate_.2s;]`}
+                    className={`s mt-[15px] pointer-events-none block  relative w-[52px] h-1 bg-white [transition:rotate_.2s;]`}
                     initial={{
                         originX: 1,
                         originY: 0.5,

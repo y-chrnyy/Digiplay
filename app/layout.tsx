@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${yanone.className} ${kurut.variable} ${yanone.variable} bg-black`}>
+      <body className={`${yanone.className} ${kurut.variable} ${yanone.variable} bg-black text-white`}>
         <Header></Header>
         {children}
       </body>

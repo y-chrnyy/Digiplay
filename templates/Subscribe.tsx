@@ -1,9 +1,11 @@
-import { SubscribeMarqueeLink, FancyAnchor } from '../components/index'
+import { SubscribeMarqueeLink, FancyAnchor, HeadingKurut } from '../components/index'
 
 const Subscribe = () => {
     return (
-        <section className="bg-black flex flex-col uppercase pb-[45px]">
-            <h2 className="mt-[130px] self-center text-[120px]/[100%] text-pink font-extralight">Подпишитесь на нас</h2>
+        <section className=" flex flex-col uppercase pb-[45px]">
+            <HeadingKurut className='mt-[130px] self-center !text-[120px]/[100%] text-pink font-extralight' h='2'> Подпишитесь на нас </HeadingKurut>
+
+            {/* <h2 className="mt-[130px] self-center text-[120px]/[100%] text-pink font-extralight"></h2> */}
             <h3 className="text-[30px]/[100%]  text-white font-light ml-10 mt-[150px] mb-[35px]">Социальные сети и контакты</h3>
             <SubscribeMarqueeLink text={'Instagram'} />
             <SubscribeMarqueeLink text={'Telegram'} />
@@ -17,11 +19,7 @@ const Subscribe = () => {
                 </FancyAnchor>
             </div>
 
-            <h5 className='mt-[100px] font-light text-[70px]/[100%] text-center text-white normal-case'>
-                Как сплоченная команда экспертов, мы создаем запоминающиеся <br />
-                и эмоциональные веб-сайты, цифровые впечатления <br />
-                и нативные приложения.
-            </h5>
+
         </section>
     )
 }
