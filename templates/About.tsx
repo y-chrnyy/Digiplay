@@ -4,7 +4,7 @@ import { HeadingYanone } from "../components"
 const About = () => {
     return (
         <section className="min-h-screen pt-[213px] flex flex-col items-center">
-            <HeadingYanone h="2" className="uppercase">Об Агенстве</HeadingYanone>
+            <HeadingYanone h="2" className="uppercase text-header-lg">Об Агенстве</HeadingYanone>
 
             <p className="text-[40px]/[100%] font-yanone text-center max-w-[1176px] font-light mt-10">
                 МЫ - ДИДЖИТАЛ АГЕНТСТВО, КОТОРОЕ ИДЕТ В НОГУ СО ВРЕМЕНЕМ И УЗНАЕМ О ТРЕНДАХ

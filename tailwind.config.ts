@@ -24,6 +24,11 @@ const config: Config = {
       fontFamily: {
         yanone: 'var(--font-yanone)',
         kurut: 'var(--font-kurut)'
+      },
+      fontSize: {
+        'header-xl': ['230px', '100%'],
+        'header-lg': ['180px', '100%'],
+        'header-md': ['120px', '100%'],
       }
     },
   },

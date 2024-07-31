@@ -3,9 +3,8 @@ import { SubscribeMarqueeLink, FancyAnchor, HeadingKurut } from '../components/i
 const Subscribe = () => {
     return (
         <section className=" flex flex-col uppercase pb-[45px]">
-            <HeadingKurut className='mt-[130px] self-center !text-[120px]/[100%] text-pink font-extralight' h='2'> Подпишитесь на нас </HeadingKurut>
+            <HeadingKurut className='mt-[130px] self-center text-header-md text-pink font-extralight' h='2'> Подпишитесь на нас </HeadingKurut>
 
-            {/* <h2 className="mt-[130px] self-center text-[120px]/[100%] text-pink font-extralight"></h2> */}
             <h3 className="text-[30px]/[100%]  text-white font-light ml-10 mt-[150px] mb-[35px]">Социальные сети и контакты</h3>
             <SubscribeMarqueeLink text={'Instagram'} />
             <SubscribeMarqueeLink text={'Telegram'} />

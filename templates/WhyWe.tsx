@@ -1,10 +1,10 @@
-import { HeadingKurut } from "../components"
+import { HeadingKurut, TextAnimationWrapper } from "../components"
 
 
 const WhyWe = () => {
     return (
         <section className="min-h-screen pt-[213px] flex flex-col items-center text-[40px]/[100%] px-[87px]">
-            <HeadingKurut h="2" className="uppercase self-start !text-[120px]/[100%]">Почему мы?</HeadingKurut>
+            <HeadingKurut h="2" className="uppercase self-start text-header-md">Почему мы?</HeadingKurut>
 
             <h3 className="mt-[110px]">Преимущества сотрудничества с нами:</h3>
             <ul className="flex flex-col gap-[50px] mt-[50px] list-disc">

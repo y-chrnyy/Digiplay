@@ -1,12 +1,12 @@
 import { createElement } from "react"
 import { IHeadingKurutProps } from "./HeadingKurut.props"
+import { TextAnimationWrapper } from "../"
 
 const HeadingKurut = ({ children, h, className }: IHeadingKurutProps) => {
-
     return (
         createElement(
             `h${h}`,
-            { className: 'text-[230px]/[100%] text-pink font-kurut ' + className },
+            { className: ' text-pink font-kurut ' + className },
             children
         )
     )

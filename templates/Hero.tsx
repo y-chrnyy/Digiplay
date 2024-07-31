@@ -1,12 +1,18 @@
-import { FancyAnchor, HeadingKurut } from "@/components"
+import { FancyAnchor, HeadingKurut, TextAnimationWrapper } from "@/components"
 
 const Hero = () => {
     return (
         <section className="flex flex-col min-h-[calc(100dvh_-_135px)] px-[140px] uppercase pb-[50px] relative"> {/* Нет мне оправдания */}
-            <HeadingKurut h="1">
+            {/* <HeadingKurut h="1" className="text-header-xl">
                 DIGI* <br />
                 <span className="block  ml-[89px]">PLAY</span>
-            </HeadingKurut>
+            </HeadingKurut> */}
+            <TextAnimationWrapper offset={40}>
+                <HeadingKurut h="1" >
+                    <span className="text-header-xl">DIGI*</span> <br />
+                    <span className="text-header-xl relative left-[75px]">PLAY</span>
+                </HeadingKurut>
+            </TextAnimationWrapper>
 
             <img className="absolute top-[289px] right-[208px] rotate-[10deg]" src="/Hero_woman.png" alt="Фото рады" role="presentation" />
             <img className="absolute top-[505px] right-0 z-10" src="/Hero_longTape.png" alt="" role="presentation" />
@@ -22,6 +28,8 @@ const Hero = () => {
                     <FancyAnchor appearance="pink-reverse">Портфолио</FancyAnchor>
                 </div>
             </div>
+
+
         </section>
     )
 }
