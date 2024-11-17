@@ -2,10 +2,12 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { BurgerMenuContentTemplate, IBurgerMenuContentTemplate, SlideUpAnchor } from "../";
 import { IBurgerMenuContentProps } from "./BurgetMenuContent.props";
-
+import { useCloseBurger } from "../";
 
 
 const BurgerMenuContent = forwardRef(({ onBackdropClick }: IBurgerMenuContentProps, outerRef) => {
+    const closeBurger = useCloseBurger()
+
     const templateRef = useRef<IBurgerMenuContentTemplate>(null),
         contentRef = useRef<HTMLDivElement>(null)
 
@@ -54,18 +56,18 @@ const BurgerMenuContent = forwardRef(({ onBackdropClick }: IBurgerMenuContentPro
                     <div className="w-full max-w-[316px]">
                         <h4 className="text-pink mb-[80px]">социальные сети</h4>
                         <ul className="font-extralight flex flex-col gap-10">
-                            <li><SlideUpAnchor text="instagram" ></SlideUpAnchor></li>
-                            <li><SlideUpAnchor text="telegram"></SlideUpAnchor></li>
+                            <li><SlideUpAnchor onClick={closeBurger} text="instagram" href={'/services'} /></li>
+                            <li><SlideUpAnchor onClick={closeBurger} text="telegram" href={'/services'} /></li>
                         </ul>
                     </div>
 
                     <div className="w-full">
                         <h4 className="text-pink mb-[80px]">меню</h4>
                         <ul className="font-extralight flex flex-col gap-10 *:uppercase">
-                            <li><SlideUpAnchor text="Об агенстве" ></SlideUpAnchor></li>
-                            <li><SlideUpAnchor text="Портфолио"></SlideUpAnchor></li>
-                            <li><SlideUpAnchor text="Отзывы" ></SlideUpAnchor></li>
-                            <li><SlideUpAnchor text="Услуги"></SlideUpAnchor></li>
+                            <li><SlideUpAnchor onClick={closeBurger} text="Об агенстве" href={'/'} /></li>
+                            <li><SlideUpAnchor onClick={closeBurger} text="Портфолио" href={'/services'} /></li>
+                            <li><SlideUpAnchor onClick={closeBurger} text="Отзывы" href={'/services'} /></li>
+                            <li><SlideUpAnchor onClick={closeBurger} text="Услуги" href={'/services'} /></li>
                         </ul>
                     </div>
                 </div>

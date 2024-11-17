@@ -4,14 +4,12 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended",
     "react-app"
   ],
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "@typescript-eslint",
-    "react-hooks"
+    "@typescript-eslint"
   ],
   "rules": {
     "semi": "off",
@@ -23,8 +21,6 @@
       {
         "allowSingleExtends": true
       }
-    ],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    ]
   }
 }

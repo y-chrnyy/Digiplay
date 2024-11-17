@@ -13,7 +13,7 @@ const Subscribe = () => {
 
             <div className='mt-[213px] mx-[60px] flex gap-[45px]'>
 
-                <FancyAnchor appearance='pink'>
+                <FancyAnchor appearance='pink' href={'/services'}>
                     <strong className='font-light text-[30px]/[100%] underline'>Digiplay@gmail.ru</strong>
                 </FancyAnchor>
             </div>

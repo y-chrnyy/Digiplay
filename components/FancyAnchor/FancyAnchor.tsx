@@ -2,9 +2,10 @@ import { forwardRef } from "react"
 import { IFancyAnchorProps } from "./FancyAnchor.props"
 import classes from './FancyAnchor.module.css'
 import cn from "classnames"
+import Link from "next/link"
 
 
-const FancyAnchor = forwardRef<HTMLAnchorElement, IFancyAnchorProps>(({ appearance = 'black', children, className, ...props }, ref) => {
+const FancyAnchor = forwardRef<HTMLAnchorElement, IFancyAnchorProps>(({ appearance = 'black', children, className, href, ...props }, ref) => {
     const base = `group/a cursor-pointer inline-flex justify-center items-center min-w-[306px] h-[78px] rounded-[40px] py-5 text-[40px] relative overflow-hidden
                   hover:scale-x-[1.02] transition-transform duration-500 [transition-timing-function:cubic-bezier(.34,5.56,.64,1)]
                   before:absolute before:w-full before:h-full before:translate-y-[101%] hover:before:translate-y-0
@@ -34,16 +35,17 @@ const FancyAnchor = forwardRef<HTMLAnchorElement, IFancyAnchorProps>(({ appearan
 
 
     return (
-        <a
+        <Link
             className={cn(base, styles[appearance], className, classes.link)}
             ref={ref}
+            href={href}
             {...props}
         >
             <span className="relative overflow-hidden z-10 font-light">
                 <span className={cn('inline-block ', spanStyles[appearance], classes.textSpan)}>{children}</span>
                 <span className={cn(`inline-block absolute top-0 left-0 translate-y-[101%] ${textSpanStyles[appearance]}`, classes.ripleSpan)}>{children}</span>
             </span>
-        </a>
+        </Link>
     )
 })
 

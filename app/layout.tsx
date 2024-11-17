@@ -5,7 +5,32 @@ import localFont from 'next/font/local'
 import "./globals.css";
 import { Header } from "../components";
 
-const yanone = Yanone_Kaffeesatz({ subsets: ['cyrillic', 'latin'], variable: '--font-yanone' });
+const yanone = localFont({
+  src: [
+    {
+      path: "./static/YanoneKaffeesatz-Regular.ttf",
+      weight: '400'
+    },
+    {
+      path: "./static/YanoneKaffeesatz-Bold.ttf",
+      weight: '700'
+    },
+    {
+      path: "./static/YanoneKaffeesatz-SemiBold.ttf",
+      weight: '600'
+    },
+    {
+      path: "./static/YanoneKaffeesatz-Light.ttf",
+      weight: '300'
+    },
+    {
+      path: "./static/YanoneKaffeesatz-ExtraLight.ttf",
+      weight: '200'
+    },
+  ],
+  display: "swap",
+  variable: "--font-yanone"
+});
 const kurut = localFont({ src: './KurutRegular.woff', display: 'swap', variable: '--font-kurut' })
 
 export const metadata: Metadata = {

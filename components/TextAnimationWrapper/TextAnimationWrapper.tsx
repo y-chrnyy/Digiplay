@@ -14,9 +14,15 @@ const spanVariants = {
 }
 
 
+export type Config = {
+    staggerDelay: number;
+    offset: number
+    delay: number;
+}
+
 
 // Получает массив слов. Оборачивает каждое слово в <div><span></span></div>. Каж
-function wordsToSpan(words: string[], config: { delay: number, offset: number }) {
+function wordsToSpan(words: string[], config: Config) {
     const wrapperRef = useRef(null),
         isInView = useInView(wrapperRef, { once: true })
 
@@ -31,35 +37,35 @@ function wordsToSpan(words: string[], config: { delay: number, offset: number })
 
     return (
         <>
-            {words.map(word => {
-                console.log(`Слово: ${word}, delay: ${config.delay * 0.05}`)
-                return (<div
-                    className="overflow-hidden p-[60px] -m-[60px]"
-                    style={{ padding: config.offset + 'px', margin: -1 * config.offset + 'px' }}
-                    ref={wrapperRef}
+            {words.map(word =>
+            (<div
+                className="overflow-hidden p-[60px] -m-[60px]"
+                style={{ padding: config.offset + 'px', margin: -1 * config.offset + 'px' }}
+                ref={wrapperRef}
+                key={word + config.staggerDelay + config.offset}
+            >
+                <motion.span
+                    className="block"
+                    variants={spanVariants}
+                    initial='initial'
+                    animate={controls}
+                    transition={{
+                        duration: 0.85,
+                        delay: config.delay + config.staggerDelay++ * 0.1,
+                        ease: [0.26, 0.48, 0.11, 0.97]
+                    }}
                 >
-                    <motion.span
-                        className="block"
-                        variants={spanVariants}
-                        initial='initial'
-                        animate={controls}
-                        transition={{
-                            duration: 0.85,
-                            delay: config.delay++ * 0.1,
-                            ease: [0.26, 0.48, 0.11, 0.97]
-                        }}
-                    >
-                        {word}
-                    </motion.span>
-                </div>)
-            }
+                    {word}
+                </motion.span>
+            </div>)
+
             )}
         </>
     )
 }
 
 // Принимает компонент. Возвращает этот же компонент, но слова внутри будут обёрнуты в <div><span></span></div>
-function getIsolatedWords(node: ReactNode, config = { delay: 0, offset: 40, }): ReactNode {
+function getIsolatedWords(node: ReactNode, config: Config): ReactNode {
 
 
     if (isValidElement(node)) {
@@ -88,8 +94,8 @@ function getIsolatedWords(node: ReactNode, config = { delay: 0, offset: 40, }): 
     }
 }
 
-const TextAnimationWrapper = ({ children, offset }: ITextAnimationWrapperProps): JSX.Element => {
-    const wrappedChildren = getIsolatedWords(children, { delay: 0.05, offset: offset })
+const TextAnimationWrapper = ({ children, offset, staggerDelay, delay = 0 }: ITextAnimationWrapperProps): JSX.Element => {
+    const wrappedChildren = getIsolatedWords(children, { staggerDelay: staggerDelay, offset: offset, delay: delay })
 
     return (
         <>

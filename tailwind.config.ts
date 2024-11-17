@@ -29,6 +29,10 @@ const config: Config = {
         'header-xl': ['230px', '100%'],
         'header-lg': ['180px', '100%'],
         'header-md': ['120px', '100%'],
+      },
+      backgroundImage: {
+        "service-hero": "url('/services_first_legs.png')",
+        "service-scretch": "url('/Services_third_scratch.png')"
       }
     },
   },

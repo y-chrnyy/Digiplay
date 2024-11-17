@@ -1,19 +1,21 @@
 import { forwardRef } from "react";
 import { ISlideUpAnchorProps } from "./SlideUpAnchor.props";
+import Link from "next/link";
 
 const SlideUpAnchor = forwardRef<HTMLAnchorElement, ISlideUpAnchorProps>(
     (
-        { text, className, ...props }: ISlideUpAnchorProps,
+        { text, className, href, onClick, ...props }: ISlideUpAnchorProps,
         outerRef
     ) => {
-
         return (
-            <a
+            <Link
                 className={
                     ['group/a font-light text-[40px]/[100%] overflow-hidden cursor-pointer', className].join(' ')
                 }
                 {...props}
                 ref={outerRef}
+                href={href}
+                onClick={onClick}
             >
                 <em
                     className={`inline-block relative overflow-hidden pr-1
@@ -32,7 +34,7 @@ const SlideUpAnchor = forwardRef<HTMLAnchorElement, ISlideUpAnchorProps>(
                     data-content={text}
                 >
                 </em>
-            </a>
+            </Link>
         )
     })
 

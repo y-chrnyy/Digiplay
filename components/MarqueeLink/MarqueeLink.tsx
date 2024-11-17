@@ -7,7 +7,7 @@ const MarqueeLink = ({ children, title, ...props }: IMarqueeLinkProps) => {
     const id = useId()
 
     return (
-        <a {...props} className="group/link flex justify-between items-center p-10 text-6xl font-light bg-black text-white relative">
+        <a {...props} className="group/link flex justify-between items-center p-10 text-6xl font-light bg-black text-white relative cursor-pointer">
             <span className="absolute w-full h-[1px] top-0 left-0 bg-white"></span>
             {title}
             <IconArrow></IconArrow>
