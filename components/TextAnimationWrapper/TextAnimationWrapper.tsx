@@ -36,7 +36,6 @@ function wordsToSpan(words: string[], config: Config) {
         }
     }, [isInView])
 
-
     return (
         <>
             {words.map(word =>
@@ -70,13 +69,18 @@ function wordsToSpan(words: string[], config: Config) {
 // Принимает компонент. Возвращает этот же компонент, но слова внутри будут обёрнуты в <div><span></span></div>
 function getIsolatedWords(node: ReactNode, config: Config): ReactNode {
 
-
     if (isValidElement(node)) {
         const newChildren: ReactNode[] = []
         const children = node.props.children;
 
-        if (children instanceof Array) {
-            newChildren.push(children.map((child) => getIsolatedWords(child, config)))
+        if (Array.isArray(children)) {
+            for(let child of children) {
+                if(!Array.isArray(child)) {
+                    newChildren.push(getIsolatedWords(child, config))
+                }
+            }
+        
+            // newChildren.push(children.map((child) => getIsolatedWords(child, config)))
         }
 
         if (typeof children === 'string' || typeof children === 'number') {
