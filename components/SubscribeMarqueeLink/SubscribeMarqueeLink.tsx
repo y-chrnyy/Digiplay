@@ -2,6 +2,11 @@ import { MarqueeLink } from ".."
 import { ICustomMarqueeLinkProps } from "./SubcribeMarqueeLink.props"
 import IconArrow from '../../public/Arrow 2.svg'
 
+const content = <>
+    
+
+</>
+
 function SubscribeMarqueeLink({ text }: ICustomMarqueeLinkProps) {
     return (
         <MarqueeLink title={text}>
@@ -14,9 +19,7 @@ function SubscribeMarqueeLink({ text }: ICustomMarqueeLinkProps) {
             <span className="flex gap-[100px] items-center" aria-hidden='true'>{text} <IconArrow width='47px' height='42px' fill='#FF54A6' /></span>
             <span className="flex gap-[100px] items-center" aria-hidden='true'>{text} <IconArrow width='47px' height='42px' fill='#FF54A6' /></span>
             <span className="flex gap-[100px] items-center" aria-hidden='true'>{text} <IconArrow width='47px' height='42px' fill='#FF54A6' /></span>
-
         </MarqueeLink>
-
     )
 }
 

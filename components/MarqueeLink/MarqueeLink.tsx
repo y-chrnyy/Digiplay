@@ -17,7 +17,7 @@ const MarqueeLink = ({ children, title, ...props }: IMarqueeLinkProps) => {
                             overflow-hidden transition-all duration-500 `}
                 id={`${id}`}
             >
-                <Marquee runOnHover={true} runOnTarget={`${id}`}>
+                <Marquee runOnHover={true} runOnTarget={`${id}`} gap={100}>
                     {children}
                 </Marquee>
             </div>

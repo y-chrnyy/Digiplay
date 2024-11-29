@@ -65,7 +65,7 @@ const BurgerMenuContent = forwardRef(({ onBackdropClick }: IBurgerMenuContentPro
                         <h4 className="text-pink mb-[80px]">меню</h4>
                         <ul className="font-extralight flex flex-col gap-10 *:uppercase">
                             <li><SlideUpAnchor onClick={closeBurger} text="Об агенстве" href={'/'} /></li>
-                            <li><SlideUpAnchor onClick={closeBurger} text="Портфолио" href={'/services'} /></li>
+                            <li><SlideUpAnchor onClick={closeBurger} text="Портфолио" href={'/portfolio'} /></li>
                             <li><SlideUpAnchor onClick={closeBurger} text="Отзывы" href={'/services'} /></li>
                             <li><SlideUpAnchor onClick={closeBurger} text="Услуги" href={'/services'} /></li>
                         </ul>

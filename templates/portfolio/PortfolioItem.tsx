@@ -16,7 +16,7 @@ export const PortfolioItem = ({ labelImg, children, href }: IPortfolioItemProps)
             <div className="opacity-0 group-hover:opacity-100 w-full flex-auto rounded-[50px] flex flex-col transition-opacity">
                 <div className="text-[30px]/[100%] text-pink font-yanone flex justify-center items-center">{children}</div>
 
-                <div className="flex justify-between w-full rounded-[50px] h-[100px] items-center ml-auto">
+                <div className="px-10 text-[25px]/[100%] flex justify-between w-full rounded-[50px] h-[100px] items-center ml-auto text-white bg-pink">
                     подробнее
 
                     <svg width="41" height="31" viewBox="0 0 41 31" fill="none" xmlns="http://www.w3.org/2000/svg">

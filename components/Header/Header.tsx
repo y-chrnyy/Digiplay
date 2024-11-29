@@ -1,5 +1,5 @@
 'use client'
-import { createContext, useCallback, useContext, useRef } from 'react'
+import { createContext, memo, useCallback, useContext, useRef } from 'react'
 import { BurgerMenu, BurgerMenuContent, IBurgerMenu, IBurgerMenuContentTemplate, TextAnimationWrapper } from '..'
 
 export type IBurgerContext = () => void
@@ -15,7 +15,7 @@ export const useCloseBurger = () => {
 
 export const BurgerContext = createContext(BurgerContextDefault)
 
-const Header = () => {
+const Header = memo(() => {
     const burgerRef = useRef<IBurgerMenu>(null),
         burgerContentRef = useRef<IBurgerMenuContentTemplate>(null);
 
@@ -23,14 +23,14 @@ const Header = () => {
         burgerContentRef.current!.toggle();
     }, [])
 
-    function onBurgerBackdropClick() {
+    const onBurgerBackdropClick = useCallback(() => {
         burgerRef.current?.close()
-    }
+    }, [])
 
-    function onLinkClick() {
+    const onLinkClick = useCallback(() => {
         burgerRef.current?.close()
         burgerContentRef.current?.close()
-    }
+    }, [])
 
     return (
         <header className='flex justify-between items-center px-10 py-[30px] text-white z-50 absolute w-full'>
@@ -43,6 +43,6 @@ const Header = () => {
             </BurgerContext.Provider>
         </header >
     )
-}
+})
 
 export { Header }
