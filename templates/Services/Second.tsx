@@ -5,7 +5,7 @@ import Image from "next/image"
 export const Second = () => {
 
     return (
-        <section className="flex flex-col relative min-h-screen pl-[242px] pr-[108px] pt-[135px] gap-[84px]">
+        <section className="flex flex-col relative min-h-screen pl-[242px] pr-[108px] pt-[135px] gap-[84px] overflow-hidden">
             <div className="flex flex-col gap-[34px]">
                 <HeadingKurut h='2' className="uppercase text-[130px]/[100%]">
                     Лендинг

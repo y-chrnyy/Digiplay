@@ -3,7 +3,7 @@ import { FancyAnchor, HeadingKurut, TextAnimationWrapper } from "@/components"
 const Hero = () => {
     return (
         <section className="flex flex-col min-h-screen px-[140px] uppercase pb-[50px] relative pt-[130px]"> {/* Нет мне оправдания */}
-            <TextAnimationWrapper offset={40} staggerDelay={0.05} delay={0}>
+            <TextAnimationWrapper offset={40} staggerDelay={0.05}>
                 <HeadingKurut h="1" >
                     <span className="text-header-xl">DIGI*</span> <br />
                     <span className="text-header-xl relative left-[75px]">PLAY</span>

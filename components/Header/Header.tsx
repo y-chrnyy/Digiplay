@@ -1,6 +1,6 @@
 'use client'
 import { createContext, useContext, useRef } from 'react'
-import { BurgerMenu, BurgerMenuContent, IBurgerMenu, IBurgerMenuContentTemplate } from '..'
+import { BurgerMenu, BurgerMenuContent, IBurgerMenu, IBurgerMenuContentTemplate, TextAnimationWrapper } from '..'
 
 export type IBurgerContext = () => void
 
@@ -33,9 +33,11 @@ const Header = () => {
     }
 
     return (
-        <header className='flex justify-between items-center px-10 py-[30px] text-white z-50 absolute w-screen'>
+        <header className='flex justify-between items-center px-10 py-[30px] text-white z-50 absolute w-full'>
             <BurgerContext.Provider value={onLinkClick}>
-                <p className='font-light text-[50px] mr-[88px] ml-auto'>меню</p>
+                <TextAnimationWrapper delay={0.08} offset={1} space={50}>
+                    <p className='font-light text-[50px] mr-[88px] ml-auto'>меню</p>
+                </TextAnimationWrapper>
                 <BurgerMenu ref={burgerRef} onClick={() => toggleContent()} />
                 <BurgerMenuContent ref={burgerContentRef} onBackdropClick={onBurgerBackdropClick} />
             </BurgerContext.Provider>

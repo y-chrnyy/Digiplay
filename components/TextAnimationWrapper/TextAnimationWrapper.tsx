@@ -2,6 +2,7 @@
 import { useRef, useEffect, ReactNode, cloneElement, isValidElement } from "react"
 import { ITextAnimationWrapperProps } from "./TextAnimationWrapper.props"
 import { motion, useInView, useAnimation } from "framer-motion"
+import cn from 'classnames'
 
 const spanVariants = {
     initial: {
@@ -18,6 +19,7 @@ export type Config = {
     staggerDelay: number;
     offset: number
     delay: number;
+    staggerMultiplier: number
 }
 
 
@@ -38,26 +40,27 @@ function wordsToSpan(words: string[], config: Config) {
     return (
         <>
             {words.map(word =>
-            (<div
-                className="overflow-hidden p-[60px] -m-[60px]"
+            (<span
+                className={cn("overflow-hidden inline-block")}
                 style={{ padding: config.offset + 'px', margin: -1 * config.offset + 'px' }}
                 ref={wrapperRef}
                 key={word + config.staggerDelay + config.offset}
             >
                 <motion.span
-                    className="block"
+                    className={cn("inline-block whitespace-pre-wrap")}
                     variants={spanVariants}
                     initial='initial'
                     animate={controls}
                     transition={{
                         duration: 0.85,
-                        delay: config.delay + config.staggerDelay++ * 0.1,
+                        delay: config.delay + config.staggerDelay++ * config.staggerMultiplier,
                         ease: [0.26, 0.48, 0.11, 0.97]
                     }}
                 >
                     {word}
+                    {" "}
                 </motion.span>
-            </div>)
+            </span>)
 
             )}
         </>
@@ -94,8 +97,8 @@ function getIsolatedWords(node: ReactNode, config: Config): ReactNode {
     }
 }
 
-const TextAnimationWrapper = ({ children, offset, staggerDelay, delay = 0 }: ITextAnimationWrapperProps): JSX.Element => {
-    const wrappedChildren = getIsolatedWords(children, { staggerDelay: staggerDelay, offset: offset, delay: delay })
+const TextAnimationWrapper = ({ children, offset = 0, staggerDelay = 0.05, delay = 0, staggerMultiplier = 0.1 }: ITextAnimationWrapperProps): JSX.Element => {
+    const wrappedChildren = getIsolatedWords(children, { staggerDelay, offset, delay, staggerMultiplier })
 
     return (
         <>

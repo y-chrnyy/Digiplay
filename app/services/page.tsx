@@ -1,4 +1,4 @@
-import { First, Second, Third } from "../../templates/Services";
+import { First, Second, Third, Fourth } from "../../templates/Services";
 
 export default function Services() {
     return (
@@ -6,7 +6,7 @@ export default function Services() {
             <First />
             <Second />
             <Third />
-
+            <Fourth />
         </main>
     )
 }
