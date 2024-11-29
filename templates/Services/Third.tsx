@@ -31,8 +31,13 @@ export const Third = () => {
                     ДОПОЛНИМ ПРОДАЮЩИМИ ТЕКСТАМИ И ПРИВЛЕЧЕМ НОВЫЙ <br />
                     ПОТОК АУДИТОРИИ И ПОТЕНЦИАЛЬНЫХ КЛИЕНТОВ.
                 </P>
-
             </div>
+
+            <div className="absolute -top-16 left-0 w-1/2 h-[248px]">
+                <Image src="/services_third_lip.png" alt="" role="presentation" fill={true} />
+            </div>
+
+            <Image className="absolute -bottom-3 -right-16" src="/services_third_marker.png" alt="" role="presentation" width={531} height={271} />
         </section >
     )
 }

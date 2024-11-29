@@ -1,8 +1,9 @@
 import { HeadingKurut, P } from "../../components"
+import Image from 'next/image'
 
 export const Fourth = () => {
     return (
-        <section className="min-h-screen flex flex-col gap-[225px] uppercase py-48">
+        <section className="min-h-screen flex flex-col gap-[225px] uppercase py-48 relative">
             <div className="grid grid-cols-1 gap-32 pl-[62px] pr-2">
                 <div className="flex flex-col gap-[90px] justify-self-end pr-[200px]">
                     <HeadingKurut className="text-[130px]/[100%]" h="2">СЪЕМКА И МОНТАЖ</HeadingKurut>
@@ -33,6 +34,9 @@ export const Fourth = () => {
                     СОЗДАНИЕ ДИЗАЙН МАКЕТА БАННЕРОВ, СЕРТИФИКАТОВ, ОФОРМЛЕНИЕ CОЦИАЛЬНЫХ СЕТЕЙ, КРЕАТИВОВ, чат-ботов И ДРУГОЕ - ПО ЗАПРОСУ.
                 </P>
             </div>
+
+            <Image className="absolute bottom-0 right-0" src="/services_fourth_marker.png" width={600} height={382} role="presentation" alt="" />
+            <Image src="/services_fourth_scratch_first.png" alt="" role="presentation" width={946} height={437} />
         </ section>
     )
 }

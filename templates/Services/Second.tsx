@@ -31,6 +31,8 @@ export const Second = () => {
             </div>
 
             <Image src={"/Services_second_cross.png"} width={422} height={249} alt="" className="absolute rotate-[27deg] top-0 right-0" />
+            <Image className="absolute -left-24 -top-10" src='/services_second_white.png' alt="" width={500} height={320} />
+
         </section>
     )
 }
