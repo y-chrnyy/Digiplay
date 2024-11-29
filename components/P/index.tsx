@@ -13,6 +13,6 @@ export const P = ({ children, className, w, text, ...props }: IPProps) => {
 
 
     return (
-        <p className={classNames("font-yanone text-pink", weight, fontSize, className)} {...props}> {children}</p>
+        <p className={classNames("font-yanone text-pink", weight, fontSize, className)} {...props}>{children}</p>
     )
 }

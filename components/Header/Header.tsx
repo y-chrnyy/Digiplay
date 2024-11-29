@@ -35,7 +35,7 @@ const Header = () => {
     return (
         <header className='flex justify-between items-center px-10 py-[30px] text-white z-50 absolute w-full'>
             <BurgerContext.Provider value={onLinkClick}>
-                <TextAnimationWrapper delay={0.08} offset={1} space={50}>
+                <TextAnimationWrapper delay={0.1} offset={1}>
                     <p className='font-light text-[50px] mr-[88px] ml-auto'>меню</p>
                 </TextAnimationWrapper>
                 <BurgerMenu ref={burgerRef} onClick={() => toggleContent()} />
