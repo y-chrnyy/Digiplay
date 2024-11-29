@@ -69,8 +69,6 @@ function wordsToSpan(words: string[], config: Config) {
 // Принимает компонент. Возвращает этот же компонент, но слова внутри будут обёрнуты в <div><span></span></div>
 function getIsolatedWords(node: ReactNode, config: Config): ReactNode {
 
-    console.log(node)
-
     if (isValidElement(node)) {
         const newChildren: ReactNode[] = []
         const children = node.props.children;

@@ -1,5 +1,5 @@
 'use client'
-import { createContext, useContext, useRef } from 'react'
+import { createContext, useCallback, useContext, useRef } from 'react'
 import { BurgerMenu, BurgerMenuContent, IBurgerMenu, IBurgerMenuContentTemplate, TextAnimationWrapper } from '..'
 
 export type IBurgerContext = () => void
@@ -19,9 +19,9 @@ const Header = () => {
     const burgerRef = useRef<IBurgerMenu>(null),
         burgerContentRef = useRef<IBurgerMenuContentTemplate>(null);
 
-    function toggleContent() {
+    const toggleContent = useCallback(() => {
         burgerContentRef.current!.toggle();
-    }
+    }, [])
 
     function onBurgerBackdropClick() {
         burgerRef.current?.close()
