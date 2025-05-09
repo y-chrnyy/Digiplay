@@ -8,6 +8,12 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      'xs': {'max': '400px'},
+      'sm': {'min': '401px', 'max': '767px'},
+      'md': {'min': '768px', 'max': '1023px'},
+      'lg': {'min': '1024px'},
+    },
     extend: {
       colors: {
         'pink': '#ff54a6'

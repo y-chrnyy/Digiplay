@@ -97,7 +97,7 @@ const BurgerMenu = forwardRef(({ onClick, className, ...props }: IBurgerMenuProp
                 toggleBurger();
                 (onClick) && onClick()
             }}
-            className={["fixed p-[5px] right-[52px] top-[51px] z-50", className].join(' ')}
+            className={["fixed p-[5px] right-[10px] sm:right-[52px] top-[51px] z-50", className].join(' ')}
             ref={burgerRef}
             aria-label='Открыть меню'
             {...props}

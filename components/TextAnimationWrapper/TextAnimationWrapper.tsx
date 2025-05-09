@@ -41,7 +41,7 @@ function wordsToSpan(words: string[], config: Config) {
             {words.map(word =>
             (<span
                 className={cn("overflow-hidden inline-block")}
-                style={{ padding: config.offset + 'px', margin: -1 * config.offset + 'px' }}
+                style={{ paddingTop: config.offset + 'px', marginTop: -1 * config.offset + 'px' }}
                 ref={wrapperRef}
                 key={word + config.staggerDelay + config.offset}
             >

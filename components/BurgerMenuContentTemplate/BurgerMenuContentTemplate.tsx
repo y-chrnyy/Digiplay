@@ -57,7 +57,7 @@ const BurgerMenuContentTemplate = forwardRef(({ children, className, onBackdropC
             >
             </span>
             <section className={cn(`w-full max-w-[946px] h-screen fixed right-0 top-0 z-30 bg-red-400 
-                             scale-x-0 transition-all duration-500  origin-[right_center] ease-out`, className)}
+                             scale-x-0 transition-all duration-500 origin-[right_center] ease-out max-sm:max-w-full`, className)}
                 ref={innerRef}
             >
                 {children}

@@ -1,0 +1,55 @@
+<svg width="410" height="320" viewBox="0 0 410 320" xmlns="http://www.w3.org/2000/svg">
+  <path 
+    d="M20,160 C50,100 150,50 250,80 C350,110 380,170 390,220"
+    fill="none" 
+    stroke="#FF54A6" 
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-dasharray="800"
+    stroke-dashoffset="800">
+    <animate 
+      attributeName="stroke-dashoffset" 
+      from="800" 
+      to="0" 
+      dur="2s" 
+      begin="0.5s"
+      fill="freeze"
+      calcMode="ease-in-out" />
+  </path>
+  
+  <path 
+    d="M50,220 C100,180 200,160 300,190 C350,205 380,240 390,280"
+    fill="none" 
+    stroke="#FF54A6" 
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-dasharray="700"
+    stroke-dashoffset="700">
+    <animate 
+      attributeName="stroke-dashoffset" 
+      from="700" 
+      to="0" 
+      dur="1.8s" 
+      begin="1.2s"
+      fill="freeze"
+      calcMode="ease-in-out" />
+  </path>
+  
+  <path 
+    d="M30,100 C80,120 180,130 250,90 C320,50 350,30 380,20"
+    fill="none" 
+    stroke="#FF54A6" 
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-dasharray="650"
+    stroke-dashoffset="650">
+    <animate 
+      attributeName="stroke-dashoffset" 
+      from="650" 
+      to="0" 
+      dur="1.5s" 
+      begin="0.8s"
+      fill="freeze"
+      calcMode="ease-in-out" />
+  </path>
+</svg> 

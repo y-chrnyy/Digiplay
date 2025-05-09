@@ -6,6 +6,7 @@ export interface IRevealAnimationProps {
     children: ReactNode
     duration: number
     delay?: number
+    offset?: number
 }
 
 const variants = {
@@ -17,7 +18,7 @@ const variants = {
     }
 }
 
-export const RevealAnimation = ({ children, duration, delay = 0 }: IRevealAnimationProps) => {
+export const RevealAnimation = ({ children, duration, delay = 0, offset }: IRevealAnimationProps) => {
     const spanRef = useRef<HTMLSpanElement>(null),
         containerRef = useRef<HTMLSpanElement>(null),
         isInView = useInView(containerRef, { once: true })
@@ -34,6 +35,10 @@ export const RevealAnimation = ({ children, duration, delay = 0 }: IRevealAnimat
         <span
             className="block overflow-hidden"
             ref={containerRef}
+            style={{
+                paddingTop: `${offset}px`,
+                marginTop: `${-1 * (offset || 0)}px`
+            }}
         >
             <motion.span
                 className="block"

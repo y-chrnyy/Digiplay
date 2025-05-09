@@ -1,4 +1,4 @@
-import { Hero, Subscribe, About, WhyWe } from "@/templates";
+import { Hero, Subscribe, About, WhyWe, ContactForm } from "@/templates";
 
 export default function Home() {
   return (
@@ -6,6 +6,7 @@ export default function Home() {
       <Hero />
       <About />
       <WhyWe />
+      <ContactForm />
       <Subscribe />
     </main>
   );
