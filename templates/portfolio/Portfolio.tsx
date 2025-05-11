@@ -28,7 +28,7 @@ const MarquueContent = () => {
           ШКОЛА СММ <br />
           ФИРМЕННЫЙ СТИЛЬ
         </PortfolioItem>
-        <PortfolioItem labelImg="/portfolio_2.png" href="/nails-heart">
+        <PortfolioItem labelImg="/nails_third.png" href="/nails-heart">
           NAILSHEART
         </PortfolioItem>
 
@@ -43,7 +43,7 @@ const MarquueContent = () => {
           ШКОЛА СММ <br />
           ФИРМЕННЫЙ СТИЛЬ
         </PortfolioItem>
-        <PortfolioItem labelImg="/portfolio_2.png" href="/nails-heart">
+        <PortfolioItem labelImg="/nails_third.png" href="/nails-heart">
           NAILSHEART
         </PortfolioItem>
  
