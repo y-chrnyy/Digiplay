@@ -20,10 +20,9 @@ const Subscribe = () => {
       <h3 className="text-[30px]/[100%] xs:text-[24px]/[100%] text-white font-light ml-10 xs:ml-5 mt-[150px] xs:mt-[100px] mb-[35px] xs:mb-[25px]">
         Социальные сети и контакты
       </h3>
-      <SubscribeMarqueeLink text={"Instagram"} />
-      <SubscribeMarqueeLink text={"Telegram"} />
-      <SubscribeMarqueeLink text={"Whats up"} />
-      <SubscribeMarqueeLink text={"Linkedin"} />
+      <SubscribeMarqueeLink text={"Instagram"} href={"https://www.instagram.com/_digiplay_?igsh=bHFiN21mazd6Mjdm"} />
+      <SubscribeMarqueeLink text={"Telegram"} href={"https://t.me/+psSZPfXh_8Q5ZWNi"} />
+      <SubscribeMarqueeLink text={"Whats up"} href={"https://wa.me/+79534589849"} />
 
       <div className="mt-[213px] xs:mt-[150px] mx-[60px] xs:mx-[30px] flex gap-[45px] xs:gap-[25px]">
         <FancyAnchor appearance="pink" href={"/services"}>

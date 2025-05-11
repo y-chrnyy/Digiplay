@@ -61,8 +61,8 @@ const BurgerMenuContent = forwardRef(({ onBackdropClick }: IBurgerMenuContentPro
                     <div className="w-full max-w-[316px] xs:max-w-full">
                         <h4 className="text-pink mb-[80px] xs:mb-[20px] max-[400px]:mb-[50px]">социальные сети</h4>
                         <ul className="font-extralight flex flex-col gap-10">
-                            <li><SlideUpAnchor onClick={closeBurger} text="instagram" href={'/services'} /></li>
-                            <li><SlideUpAnchor onClick={closeBurger} text="telegram" href={'/services'} /></li>
+                            <li><SlideUpAnchor onClick={closeBurger} text="instagram" href={'https://www.instagram.com/_digiplay_?igsh=bHFiN21mazd6Mjdm'} /></li>
+                            <li><SlideUpAnchor onClick={closeBurger} text="telegram" href={'https://t.me/+psSZPfXh_8Q5ZWNi'} /></li>
                         </ul>
                     </div>
 

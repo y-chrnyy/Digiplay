@@ -7,9 +7,9 @@ const content = <>
 
 </>
 
-function SubscribeMarqueeLink({ text }: ICustomMarqueeLinkProps) {
+function SubscribeMarqueeLink({ text, href }: ICustomMarqueeLinkProps) {
     return (
-        <MarqueeLink title={text}>
+        <MarqueeLink title={text} href={href}>
             <span className="flex gap-[100px] items-center">
                 <span className="whitespace-nowrap">{text}</span>
                 <IconArrow width='47px' height='42px' fill='#FF54A6'></IconArrow>

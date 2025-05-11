@@ -16,6 +16,7 @@ const SlideUpAnchor = forwardRef<HTMLAnchorElement, ISlideUpAnchorProps>(
                 ref={outerRef}
                 href={href}
                 onClick={onClick}
+                target="_blank"
             >
                 <em
                     className={`inline-block relative overflow-hidden pr-1

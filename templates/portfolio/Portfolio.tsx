@@ -24,48 +24,31 @@ const MarquueContent = () => {
   return (
     <>
       <div className="flex flex-nowrap gap-[100px] w-max min-w-[100vw]">
-        <PortfolioItem labelImg="/portfolio_1.png" href="/">
+        <PortfolioItem labelImg="/portfolio_1.png" href="/smm">
           ШКОЛА СММ <br />
           ФИРМЕННЫЙ СТИЛЬ
         </PortfolioItem>
-        <PortfolioItem labelImg="/portfolio_2.png" href="/">
+        <PortfolioItem labelImg="/portfolio_2.png" href="/nails-heart">
           NAILSHEART
         </PortfolioItem>
-        <PortfolioItem labelImg="/portfolio_3.png" href="/">
-          РУМТИБЕТ <br />
-          ВЕБ-САЙТ
-        </PortfolioItem>
-        <PortfolioItem labelImg="/portfolio_4.png" href="/">
+
+        <PortfolioItem labelImg="/portfolio_4.png" href="/imi-nami">
           ВОКАЛЬНАЯ СТУДИЯ
         </PortfolioItem>
-        <PortfolioItem labelImg="/portfolio_5.png" href="/">
-          РАЗРАБОТКА МЕНЮ
-        </PortfolioItem>
-        <PortfolioItem labelImg="/portfolio_6.png" href="/">
-          МАКЕТ ЖУРНАЛА
-        </PortfolioItem>
+
       </div>
 
       <div className="flex flex-nowrap gap-[100px] w-max min-w-[100vw]">
-        <PortfolioItem labelImg="/portfolio_1.png" href="/">
+      <PortfolioItem labelImg="/portfolio_1.png" href="/smm">
           ШКОЛА СММ <br />
           ФИРМЕННЫЙ СТИЛЬ
         </PortfolioItem>
-        <PortfolioItem labelImg="/portfolio_2.png" href="/">
+        <PortfolioItem labelImg="/portfolio_2.png" href="/nails-heart">
           NAILSHEART
         </PortfolioItem>
-        <PortfolioItem labelImg="/portfolio_3.png" href="/">
-          РУМТИБЕТ <br />
-          ВЕБ-САЙТ
-        </PortfolioItem>
-        <PortfolioItem labelImg="/portfolio_4.png" href="/">
+ 
+        <PortfolioItem labelImg="/portfolio_4.png" href="/imi-nami">
           ВОКАЛЬНАЯ СТУДИЯ
-        </PortfolioItem>
-        <PortfolioItem labelImg="/portfolio_5.png" href="/">
-          РАЗРАБОТКА МЕНЮ
-        </PortfolioItem>
-        <PortfolioItem labelImg="/portfolio_6.png" href="/">
-          МАКЕТ ЖУРНАЛА
         </PortfolioItem>
       </div>
     </>
